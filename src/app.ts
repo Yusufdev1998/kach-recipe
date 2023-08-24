@@ -13,7 +13,7 @@ class App {
   }
 
   setRoutes() {
-    this.appServer.use("/recipes", authMiddleware, recipeRouter);
+    this.appServer.use("/recipies", authMiddleware, recipeRouter);
     this.appServer.use("/users", userRouter);
   }
 

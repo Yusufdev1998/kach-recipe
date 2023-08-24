@@ -9,26 +9,22 @@ const Controller = new UserController();
 
 userRouter.post(
   "/signup",
-  body("username").notEmpty().withMessage("Username bo'sh bo'lmasin!"),
+  body("username").notEmpty().withMessage("Username cannot be empty!"),
   body("password")
     .notEmpty()
     .isLength({ min: 6, max: 12 })
-    .withMessage(
-      "Password bo'sh bo'lmasin!, uzunligi 6 va 12 belgi orasida bo'lsin!"
-    ),
+    .withMessage("Password field must be between 6 and 12 characters!"),
   validationMiddle,
   Controller.signUp
 );
 
 userRouter.post(
   "/login",
-  body("username").notEmpty().withMessage("Username bo'sh bo'lmasin!"),
+  body("username").notEmpty().withMessage("Username cannot be empty!"),
   body("password")
     .notEmpty()
     .isLength({ min: 6, max: 12 })
-    .withMessage(
-      "Password bo'sh bo'lmasin!, uzunligi 6 va 12 belgi orasida bo'lsin!"
-    ),
+    .withMessage("Password field must be between 6 and 12 characters!"),
   validationMiddle,
   Controller.logIn
 );

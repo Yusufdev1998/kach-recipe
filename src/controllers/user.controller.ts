@@ -15,7 +15,7 @@ class UserController {
       const hasUser = await userModel.findOne({ username });
 
       if (hasUser) {
-        return res.status(409).send({ errors: ["Bunday username mavjud"] });
+        return res.status(409).send({ errors: ["Username doesn't exist!"] });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -54,8 +54,8 @@ class UserController {
             username: user.username,
             accessToken,
           });
-        } else throw new Error("Password xato!");
-      } else throw new Error("Bunday username topilmadi");
+        } else throw new Error("Password is wrong!");
+      } else throw new Error("Username could not be found!");
     } catch (error: any) {
       return res.status(400).send({ errors: [error.message] });
     }
