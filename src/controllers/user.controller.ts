@@ -15,7 +15,7 @@ class UserController {
       const hasUser = await userModel.findOne({ username });
 
       if (hasUser) {
-        return res.status(409).send({ errors: ["Username doesn't exist!"] });
+        return res.status(409).send({ errors: ["Username is not available!"] });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);

@@ -25,7 +25,7 @@ class UserController {
             try {
                 const hasUser = yield user_model_1.default.findOne({ username });
                 if (hasUser) {
-                    return res.status(409).send({ errors: ["Username doesn't exist!"] });
+                    return res.status(409).send({ errors: ["Username is not available!"] });
                 }
                 const hashedPassword = yield bcrypt_1.default.hash(password, 10);
                 const user = yield user_model_1.default.create({
