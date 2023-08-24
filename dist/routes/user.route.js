@@ -9,12 +9,12 @@ const user_controller_1 = __importDefault(require("../controllers/user.controlle
 const validationMiddle_1 = __importDefault(require("../middleware/validationMiddle"));
 const userRouter = (0, express_1.Router)();
 const Controller = new user_controller_1.default();
-userRouter.post("/signup", (0, express_validator_1.body)("username").notEmpty().withMessage("Username bo'sh bo'lmasin!"), (0, express_validator_1.body)("password")
+userRouter.post("/signup", (0, express_validator_1.body)("username").notEmpty().withMessage("Username cannot be empty!"), (0, express_validator_1.body)("password")
     .notEmpty()
     .isLength({ min: 6, max: 12 })
-    .withMessage("Password bo'sh bo'lmasin!, uzunligi 6 va 12 belgi orasida bo'lsin!"), validationMiddle_1.default, Controller.signUp);
-userRouter.post("/login", (0, express_validator_1.body)("username").notEmpty().withMessage("Username bo'sh bo'lmasin!"), (0, express_validator_1.body)("password")
+    .withMessage("Password field must be between 6 and 12 characters!"), validationMiddle_1.default, Controller.signUp);
+userRouter.post("/login", (0, express_validator_1.body)("username").notEmpty().withMessage("Username cannot be empty!"), (0, express_validator_1.body)("password")
     .notEmpty()
     .isLength({ min: 6, max: 12 })
-    .withMessage("Password bo'sh bo'lmasin!, uzunligi 6 va 12 belgi orasida bo'lsin!"), validationMiddle_1.default, Controller.logIn);
+    .withMessage("Password field must be between 6 and 12 characters!"), validationMiddle_1.default, Controller.logIn);
 exports.default = userRouter;

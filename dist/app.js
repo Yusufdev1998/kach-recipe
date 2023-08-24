@@ -14,7 +14,7 @@ class App {
         this.setRoutes();
     }
     setRoutes() {
-        this.appServer.use("/recipes", auth_middleware_1.default, recipes_route_1.default);
+        this.appServer.use("/recipies", auth_middleware_1.default, recipes_route_1.default);
         this.appServer.use("/users", user_route_1.default);
     }
     listen(port) {

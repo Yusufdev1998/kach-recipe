@@ -25,7 +25,7 @@ class UserController {
             try {
                 const hasUser = yield user_model_1.default.findOne({ username });
                 if (hasUser) {
-                    return res.status(409).send({ errors: ["Bunday username mavjud"] });
+                    return res.status(409).send({ errors: ["Username doesn't exist!"] });
                 }
                 const hashedPassword = yield bcrypt_1.default.hash(password, 10);
                 const user = yield user_model_1.default.create({
@@ -58,10 +58,10 @@ class UserController {
                         });
                     }
                     else
-                        throw new Error("Password xato!");
+                        throw new Error("Password is wrong!");
                 }
                 else
-                    throw new Error("Bunday username topilmadi");
+                    throw new Error("Username could not be found!");
             }
             catch (error) {
                 return res.status(400).send({ errors: [error.message] });
