@@ -8,8 +8,8 @@ class App {
   appServer;
   constructor() {
     this.appServer = express();
-    this.appServer.use(express.json());
     this.appServer.use(cors());
+    this.appServer.use(express.json());
     this.setRoutes();
   }
 
