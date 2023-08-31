@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import recipeRouter from "./routes/recipes.route";
 import userRouter from "./routes/user.route";
 import authMiddleware from "./middleware/auth.middleware";
@@ -8,7 +9,7 @@ class App {
   constructor() {
     this.appServer = express();
     this.appServer.use(express.json());
-
+    this.appServer.use(cors());
     this.setRoutes();
   }
 
